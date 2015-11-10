@@ -380,6 +380,6 @@
     start year will default to 1996.
   -->
   <bean name="minimumYearAllowed" class="org.archive.wayback.util.Timestamp">
-    <property name="startYear" value="1996" />
+    <property name="startYear" value="2004" />
   </bean>
 </beans>
