@@ -1,0 +1,3 @@
+[submodule "wayback-webapp/src/main/webapp/wet-boew"]
+	path = wayback-webapp/src/main/webapp/wet-boew
+	url = https://github.com/wet-boew/themes-dist.git
