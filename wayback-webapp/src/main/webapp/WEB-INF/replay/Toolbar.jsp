@@ -29,6 +29,8 @@ UIResults results = UIResults.extractReplay(request);
 WaybackRequest wbRequest = results.getWbRequest();
 ResultURIConverter uriConverter = results.getURIConverter();
 StringFormatter fmt = wbRequest.getFormatter();
+String langCode = wbRequest.getLocaleLanguage();
+langCode = langCode.substring(0,2).toLowerCase();
 
 String staticPrefix = results.getStaticPrefix();
 String queryPrefix = results.getQueryPrefix();
@@ -160,19 +162,19 @@ function trackMouseMove(event,element) {
 //]]>
 </script>
 
-<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;}#wm-ipp a:hover{text-decoration:underline!important;}</style>
-<div id="wm-ipp" style="display:none; position:relative;padding:0 5px;min-height:70px;min-width:800px; z-index:9000;">
+<style type="text/css">body{margin-top:0!important;padding-top:0!important;min-width:800px!important;padding-bottom:94px}#wm-ipp a:hover{text-decoration:underline!important;}</style>
+<div id="wm-ipp" style="display:none; position:relative;padding:0 5px;min-height:70px;min-width:800px; z-index:9000;padding-bottom:30px">
 <div id="wm-ipp-inside" style="position:fixed;padding:0!important;margin:0!important;width:97%;min-width:780px;border:5px solid #000;border-top:none;background-image:url(<%= staticPrefix %>images/toolbar/wm_tb_bk_trns.png);text-align:center;-moz-box-shadow:1px 1px 3px #333;-webkit-box-shadow:1px 1px 3px #333;box-shadow:1px 1px 3px #333;font-size:11px!important;font-family:'Lucida Grande','Arial',sans-serif!important;">
     <table style="border-collapse:collapse;margin:0;padding:0;width:100%;"><tbody><tr>
         <td style="padding:10px;vertical-align:top;min-width:110px;">
-            <a href="<%= queryPrefix %>" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="<%= staticPrefix %>images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0"/></a>
+            <a href="<%= queryPrefix %>" title="Wayback Machine home page" style="background-color:transparent;border:none;"><img src="<%= staticPrefix %>gcwa/images/toolbar/wayback-toolbar-logo-<%= langCode %>.png" alt="Wayback Machine" width="190" height="40" border="0"/></a>
         </td>
         <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;">
 
             <table style="border-collapse:collapse;margin:0 auto;padding:0;width:570px;"><tbody><tr>
                 <td style="padding:3px 0;" colspan="2">
                     <form target="_top" method="get" action="<%= queryPrefix %>query" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;">
-                        <input type="text" name="<%= WaybackRequest.REQUEST_URL %>" id="wmtbURL" value="<%= searchUrlSafe %>" maxlength="256" style="width:400px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;"/>
+                        <input type="text" name="<%= WaybackRequest.REQUEST_URL %>" id="wmtbURL" value="<%= searchUrlSafe %>" maxlength="256" style="width:360px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;"/>
                         <input type="hidden" name="<%= WaybackRequest.REQUEST_TYPE %>" value="<%= WaybackRequest.REQUEST_REPLAY_QUERY %>"><input type="hidden" name="<%= WaybackRequest.REQUEST_DATE %>" value="<%= data.curResult.getCaptureTimestamp() %>"/>
                         <input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;"/>
                         <span id="wm_tb_options" style="display:block;"/>
@@ -314,9 +316,14 @@ function trackMouseMove(event,element) {
    </td>
    <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
        <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(<%= staticPrefix %>images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="<%= fmt.format("ToolBar.closeTitle") %>"><%= fmt.format("ToolBar.closeText") %></a>
-       <a href="<%= fmt.format("UIGlobal.helpUrl") %>" style="display:block;padding-right:18px;background:url(<%= staticPrefix %>images/toolbar/wm_tb_help.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;background-color:transparent;border:none;" title="<%= fmt.format("ToolBar.helpTitle") %>"><%= fmt.format("ToolBar.helpText") %></a>
    </td>
-   </tr></tbody></table>
+   </tr>
+   <tr>
+        <td style="padding:10px;vertical-align:top;min-width:110px;"></td> 
+        <td style="padding:0!important;text-align:center;vertical-align:top;width:100%;font-size:10px!important;"> <%= fmt.format("ToolBar.warning") %> </td>
+        <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;"> </td>
+   </tr>   
+   </tbody></table>
 
 </div>
 </div>
