@@ -97,6 +97,7 @@ public class UIResults {
 	private WaybackException exception = null;
 	private PerfWritingHttpServletResponse perfResponse;
 	private StringFormatter formatter;
+    private StringFormatter gcwaFormatter;
 	
 	private final static String localHostName;
 	
@@ -692,6 +693,19 @@ public class UIResults {
 		}
 		return formatter;
 	}
+
+	/**
+     * GCWA specific StringFormatter set-up for locale of request being
+     * processed.
+     * @return StringFormatter localized to user request
+     */
+    public StringFormatter getGCWAFormatter() {
+        if (gcwaFormatter == null) {
+                    ResourceBundle b = ResourceBundle.getBundle("gcwaUI", new UTF8Control());
+            gcwaFormatter = new StringFormatter(b, getLocale());
+        }
+        return gcwaFormatter;
+    }
 
 	/**
 	 * @return URL that points to the root of the Server
