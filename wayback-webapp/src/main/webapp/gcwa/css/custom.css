@@ -1,0 +1,25 @@
+#wbCalendar span.label {
+	color: #333;
+	line-height : 1.4375;
+	font-size : 1.2em;
+	font-weight : 700	
+	}
+#position *, :after, :before{
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box
+	}
+#position .month table td .day a {
+    color: #000;
+	line-height : 1.4375;
+	font-size : 0.75em;
+    font-weight: 700;
+    text-decoration: none
+}
+#position .tooltip{
+	opacity:100;
+	position:relative;
+	line-height:1.4375;
+	font-size:16px;
+	filter: alpha(opacity=100);
+}
