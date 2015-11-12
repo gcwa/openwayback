@@ -30,7 +30,11 @@ WaybackRequest wbRequest = results.getWbRequest();
 ResultURIConverter uriConverter = results.getURIConverter();
 StringFormatter fmt = wbRequest.getFormatter();
 String langCode = wbRequest.getLocaleLanguage();
-langCode = langCode.substring(0,2).toLowerCase();
+if (langCode.substring(0,2).toLowerCase() == "fr") {
+    langCode = "fr";
+} else {
+    langCode = "en";
+};
 
 String staticPrefix = results.getStaticPrefix();
 String queryPrefix = results.getQueryPrefix();
