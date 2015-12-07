@@ -688,7 +688,7 @@ public class UIResults {
 	 */
 	public StringFormatter getFormatter() {
 		if (formatter == null) {
-                    ResourceBundle b = ResourceBundle.getBundle(UI_RESOURCE_BUNDLE_NAME, new UTF8Control());
+                    ResourceBundle b = ResourceBundle.getBundle(UI_RESOURCE_BUNDLE_NAME, getLocale(), new UTF8Control());
 			formatter = new StringFormatter(b, getLocale());
 		}
 		return formatter;
@@ -701,7 +701,7 @@ public class UIResults {
      */
     public StringFormatter getGCWAFormatter() {
         if (gcwaFormatter == null) {
-                    ResourceBundle b = ResourceBundle.getBundle("gcwaUI", new UTF8Control());
+                    ResourceBundle b = ResourceBundle.getBundle("gcwaUI", getLocale(), new UTF8Control());
             gcwaFormatter = new StringFormatter(b, getLocale());
         }
         return gcwaFormatter;
