@@ -202,6 +202,14 @@
     <property name="bounceToQueryPrefix" value="false" />
     <property name="enableMemento" value="true" />
 
+    <property name="locale">
+        <bean class="java.util.Locale">
+        <!-- en_CA -->
+        <constructor-arg type="java.lang.String" value="en" />
+        <constructor-arg type="java.lang.String" value="CA" />
+        </bean>
+    </property>
+    
 	<!--
 	  These properties enable customized handling of query, replay, and static
 	  requests by different URL prefixes
@@ -260,6 +268,33 @@
     <property name="exclusionFactory" ref="excluder-factory-static" />
 -->
 
+  </bean>
+
+<!-- 
+    ===================
+    Support for French
+    ===================
+ -->
+<bean name="wayback-fr" parent="standardaccesspoint">
+    <property name="accessPointPath" value="${wayback.url.prefix}/wayback-fr/"/>
+    
+    <property name="locale">
+        <bean class="java.util.Locale">
+        <!-- fr_CA -->
+        <constructor-arg type="java.lang.String" value="fr" />
+        <constructor-arg type="java.lang.String" value="CA" />
+        </bean>
+    </property>
+  
+    <property name="replayPrefix" value="${wayback.url.prefix}/wayback-fr/" />
+    <property name="queryPrefix" value="${wayback.url.prefix}/wayback-fr/" />
+    <property name="staticPrefix" value="${wayback.url.prefix}/wayback-fr/" />
+
+    <property name="uriConverter">
+      <bean class="org.archive.wayback.archivalurl.ArchivalUrlResultURIConverter">
+        <property name="replayURIPrefix" value="${wayback.url.prefix}/wayback-fr/"/>
+      </bean>
+    </property>
   </bean>
 
 
