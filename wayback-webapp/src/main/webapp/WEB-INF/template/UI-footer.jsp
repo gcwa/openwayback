@@ -4,10 +4,19 @@
 <%
 UIResults results = UIResults.getGeneric(request);
 StringFormatter fmt = results.getWbRequest().getFormatter();
+StringFormatter gcwafmt = results.getGCWAFormatter();
 
 String staticPrefix = results.getStaticPrefix();
 String queryPrefix = results.getQueryPrefix();
 String replayPrefix = results.getReplayPrefix();
+String otherLangQueryPrefix;
+
+String langCode = results.getWbRequest().getLocaleLanguage().substring(0,2).toLowerCase();
+if ("fr".equals(langCode)) {
+    otherLangQueryPrefix = queryPrefix.replaceAll("\\/wayback-fr\\/", "/wayback/");
+} else {
+    otherLangQueryPrefix = queryPrefix.replaceAll("\\/wayback\\/", "/wayback-fr/");
+};
 %>
 <!-- FOOTER -->
 		<div align="center">
@@ -17,8 +26,8 @@ String replayPrefix = results.getReplayPrefix();
 				<a href="<%= staticPrefix %>">
 					<%= fmt.format("UIGlobal.homeLink") %>
 				</a> |
-				<a href="<%= staticPrefix %>help.jsp">
-					<%= fmt.format("UIGlobal.helpLink") %>
+				<a href="<%= otherLangQueryPrefix %>">
+					<%= gcwafmt.format("wayback.otherLang") %>
 				</a>
 			</p>
 		</div>

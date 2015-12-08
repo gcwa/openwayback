@@ -51,12 +51,10 @@ String yearImgUrl = graphJspPrefix + "jsp/graph.jsp?nomonth=1&graphdata=" + year
 // a Calendar object for doing days-in-week, day-of-week,days-in-month math:
 Calendar cal = BubbleCalendarData.getUTCCalendar();
 // GCWA Specific
-String langCode = results.getWbRequest().getLocaleLanguage();
-if (langCode.substring(0,2).toLowerCase() == "fr") {
-    langCode = "fr";
-} else {
+String langCode = results.getWbRequest().getLocaleLanguage().substring(0,2).toLowerCase();
+if (! "fr".equals(langCode)) {
     langCode = "en";
-};
+}
 String gcWebURL = staticPrefix.replace("wayback","GCWebArchive");
 %><!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="<%= langCode %>" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
 <html class="no-js" lang="<%= langCode %>" dir="ltr">
@@ -264,9 +262,9 @@ $().ready(function(){
 <div class="row">;
 <object id="gcwu-sig" type="image/svg+xml" tabindex="-1" role="img" data="<%= staticPrefix %>wet-boew/theme-gcwu-fegc/assets/sig-<%= langCode %>.svg" aria-label="Government of Canada"></object>
 <ul id="gc-bar" class="list-inline">
-<li><a href="http://www.canada.ca/en/index.html" rel="external">Canada.ca</a></li>
-<li><a href="http://www.canada.ca/en/services/index.html" rel="external">Services</a></li>
-<li><a href="http://www.canada.ca/en/gov/dept/index.html" rel="external">Departments</a></li>
+<li><a href="<%= gcwafmt.format("header.canada.ca.link") %>" rel="external">Canada.ca</a></li>
+<li><a href="<%= gcwafmt.format("header.services.link") %>" rel="external"><%= gcwafmt.format("header.services") %></a></li>
+<li><a href="<%= gcwafmt.format("header.departments.link") %>" rel="external"><%= gcwafmt.format("header.departments") %></a></li>
 </ul>
 <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
 <h2>Search and menus</h2>
@@ -308,7 +306,7 @@ $().ready(function(){
             <form name="form1" method="get" action="<%= queryPrefix %>query">
 			<input type="hidden" name="<%= WaybackRequest.REQUEST_TYPE %>" value="<%= WaybackRequest.REQUEST_CAPTURE_QUERY %>">
                         <input type="text" name="<%= WaybackRequest.REQUEST_URL %>" value="<%= data.searchUrlForHTML %>" size="40" maxlength="256">
-            <input type="submit" name="Submit" value="Go Wayback!"/>
+            <input type="submit" name="Submit" value="<%= fmt.format("UIGlobal.GoWaybackButton") %>"/>
             </form>
     
             <div id="wbMeta">
@@ -506,7 +504,7 @@ for(int moy = 0; moy < 12; moy++) {
                     <div class="date tooltip">
                         <div class="pop">
                             <h3><%= fmt.format("{0,date,MMMMM d, yyyy}",firstCaptureInDayDate) %></h3>
-                            <p><%= count %> snapshots</p>
+                            <p><%= fmt.format("BubbleCalendar.snapshot", count) %></p>
                             <ul>
 							<%
 							Iterator<CaptureSearchResult> dayItr = 
@@ -525,7 +523,7 @@ for(int moy = 0; moy < 12; moy++) {
                         </div>
                         <div class="day">
 
-                            <a href="<%= safeUrl %>" title="<%= count %> snapshots" class="<%= fmt.format("{0,date,MMM-d-yyyy}",firstCaptureInDayDate) %>"><%= dom + 1 %></a>
+                            <a href="<%= safeUrl %>" title="<%= fmt.format("BubbleCalendar.snapshot", count) %>" class="<%= fmt.format("{0,date,MMM-d-yyyy}",firstCaptureInDayDate) %>"><%= dom + 1 %></a>
                         </div>
                     </div>
 			      </td><%

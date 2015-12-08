@@ -29,6 +29,8 @@ UIResults results = UIResults.extractReplay(request);
 WaybackRequest wbRequest = results.getWbRequest();
 ResultURIConverter uriConverter = results.getURIConverter();
 StringFormatter fmt = wbRequest.getFormatter();
+StringFormatter gcwafmt = results.getGCWAFormatter();
+
 String langCode = wbRequest.getLocaleLanguage();
 if (langCode.substring(0,2).toLowerCase() == "fr") {
     langCode = "fr";
@@ -180,7 +182,7 @@ function trackMouseMove(event,element) {
                     <form target="_top" method="get" action="<%= queryPrefix %>query" name="wmtb" id="wmtb" style="margin:0!important;padding:0!important;">
                         <input type="text" name="<%= WaybackRequest.REQUEST_URL %>" id="wmtbURL" value="<%= searchUrlSafe %>" maxlength="256" style="width:360px;font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;"/>
                         <input type="hidden" name="<%= WaybackRequest.REQUEST_TYPE %>" value="<%= WaybackRequest.REQUEST_REPLAY_QUERY %>"><input type="hidden" name="<%= WaybackRequest.REQUEST_DATE %>" value="<%= data.curResult.getCaptureTimestamp() %>"/>
-                        <input type="submit" value="Go" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;"/>
+                        <input type="submit" value="<%= fmt.format("ToolBar.searchButtonText") %>" style="font-size:11px;font-family:'Lucida Grande','Arial',sans-serif;margin-left:5px;"/>
                         <span id="wm_tb_options" style="display:block;"/>
                     </form>
                 </td>
@@ -320,6 +322,7 @@ function trackMouseMove(event,element) {
    </td>
    <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
        <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(<%= staticPrefix %>images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="<%= fmt.format("ToolBar.closeTitle") %>"><%= fmt.format("ToolBar.closeText") %></a>
+       <a href=""><%= gcwafmt.format("wayback.otherLang") %></a>
    </td>
    </tr>
    <tr>

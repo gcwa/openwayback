@@ -6,6 +6,7 @@
 <%
 UIResults results = UIResults.getGeneric(request);
 StringFormatter fmt = results.getWbRequest().getFormatter();
+StringFormatter gcwafmt = results.getGCWAFormatter();
 Object names = request.getAttribute("AccessPointNames");
 if(names != null) {
 	if(names instanceof ArrayList) {
