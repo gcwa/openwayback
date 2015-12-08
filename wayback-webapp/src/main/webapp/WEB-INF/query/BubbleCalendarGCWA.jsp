@@ -51,9 +51,13 @@ String yearImgUrl = graphJspPrefix + "jsp/graph.jsp?nomonth=1&graphdata=" + year
 // a Calendar object for doing days-in-week, day-of-week,days-in-month math:
 Calendar cal = BubbleCalendarData.getUTCCalendar();
 // GCWA Specific
+String otherLangUrl;
 String langCode = results.getWbRequest().getLocaleLanguage().substring(0,2).toLowerCase();
-if (! "fr".equals(langCode)) {
-    langCode = "en";
+if ("fr".equals(langCode)) {
+    otherLangUrl = results.getOriginalRequestURL().replaceAll("\\/wayback-fr\\/", "/wayback/");
+} else {
+    langCode = "fr";
+    otherLangUrl = results.getOriginalRequestURL().replaceAll("\\/wayback\\/", "/wayback-fr/");
 }
 String gcWebURL = staticPrefix.replace("wayback","GCWebArchive");
 %><!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="<%= langCode %>" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
@@ -265,6 +269,7 @@ $().ready(function(){
 <li><a href="<%= gcwafmt.format("header.canada.ca.link") %>" rel="external">Canada.ca</a></li>
 <li><a href="<%= gcwafmt.format("header.services.link") %>" rel="external"><%= gcwafmt.format("header.services") %></a></li>
 <li><a href="<%= gcwafmt.format("header.departments.link") %>" rel="external"><%= gcwafmt.format("header.departments") %></a></li>
+<li><a href="<%= otherLangUrl %>"><%= gcwafmt.format("wayback.otherLang") %></a></li>
 </ul>
 <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
 <h2>Search and menus</h2>
