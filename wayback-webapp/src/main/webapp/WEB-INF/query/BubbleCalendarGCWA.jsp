@@ -379,9 +379,9 @@ $().ready(function(){
 </div>
 <div class="clearfix"></div>
 
-<div id="wbCalendar">
+<div id="wbCalendar" class="container-fluid">
     
-  <div id="calUnder" class="calPosition">
+  <div id="calUnder" class="calPosition row">
 
     
 
@@ -392,7 +392,7 @@ for(int moy = 0; moy < 12; moy++) {
 	Partition<Partition<CaptureSearchResult>> curMonth = data.monthsByDay.get(moy);
 	List<Partition<CaptureSearchResult>> monthDays = curMonth.list();
 %>
-    <div class="month" id="<%= data.yearNum %>-<%= moy %>">
+    <div class="month col-md-3" id="<%= data.yearNum %>-<%= moy %>">
 	    <table>
 	
 	       <thead>
@@ -463,14 +463,14 @@ for(int moy = 0; moy < 12; moy++) {
 }
 %>
   </div>
-  <div id="calOver" class="calPosition">
+  <div id="calOver" class="calPosition row">
 <%
 
 for(int moy = 0; moy < 12; moy++) {
 	Partition<Partition<CaptureSearchResult>> curMonth = data.monthsByDay.get(moy);
 	List<Partition<CaptureSearchResult>> monthDays = curMonth.list();
 %>
-    <div class="month" id="<%= data.yearNum %>-<%= moy %>">
+    <div class="month col-md-3" id="<%= data.yearNum %>-<%= moy %>">
 	    <table>
 	
 	       <thead>
