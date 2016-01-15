@@ -31,12 +31,20 @@ ResultURIConverter uriConverter = results.getURIConverter();
 StringFormatter fmt = wbRequest.getFormatter();
 StringFormatter gcwafmt = results.getGCWAFormatter();
 
+//GCWA Specific
 String langCode = wbRequest.getLocaleLanguage();
 if (langCode.substring(0,2).toLowerCase() == "fr") {
     langCode = "fr";
 } else {
     langCode = "en";
 };
+String otherLangUrl;
+if ("fr".equals(langCode)) {
+ otherLangUrl = results.getOriginalRequestURL().replaceAll("\\/wayback-fr\\/", "/wayback/");
+} else {
+ langCode = "fr";
+ otherLangUrl = results.getOriginalRequestURL().replaceAll("\\/wayback\\/", "/wayback-fr/");
+}
 
 String staticPrefix = results.getStaticPrefix();
 String queryPrefix = results.getQueryPrefix();
@@ -322,7 +330,7 @@ function trackMouseMove(event,element) {
    </td>
    <td style="text-align:right;padding:5px;width:65px;font-size:11px!important;">
        <a href="javascript:;" onclick="document.getElementById('wm-ipp').style.display='none';" style="display:block;padding-right:18px;background:url(<%= staticPrefix %>images/toolbar/wm_tb_close.png) no-repeat 100% 0;color:#33f;font-family:'Lucida Grande','Arial',sans-serif;margin-bottom:23px;background-color:transparent;border:none;" title="<%= fmt.format("ToolBar.closeTitle") %>"><%= fmt.format("ToolBar.closeText") %></a>
-       <a href=""><%= gcwafmt.format("wayback.otherLang") %></a>
+       <a href="<%= otherLangUrl %>"><%= gcwafmt.format("wayback.otherLang") %></a>
    </td>
    </tr>
    <tr>
