@@ -85,18 +85,18 @@ if(e instanceof ResourceNotInArchiveException) {
 	                String safePrevReplay = fmt.escapeHtml(conv.makeReplayURI(prev.getCaptureTimestamp(),prev.getOriginalUrl()));
 	                String safeNextReplay = fmt.escapeHtml(conv.makeReplayURI(next.getCaptureTimestamp(),next.getOriginalUrl()));
 	                %>
-	                <%= fmt.format("HTMLError.likeToTry") %> <a href="<%= safePrevReplay %>"><%= fmt.format("UIGlobal.previous") %></a> or <a href="<%= safeNextReplay %>"><%= fmt.format("UIGlobal.next") %></a> <%= fmt.format("HTMLError.date") %>
+	                <%= fmt.format("HTMLError.likeToTry") %> <a href="<%= safePrevReplay %>"><%= fmt.format("UIGlobal.previous") %></a> | <a href="<%= safeNextReplay %>"><%= fmt.format("UIGlobal.next") %></a> <%= fmt.format("HTMLError.date") %>
 	                <%
 	        } else if (prev != null) {
 	                String safePrevReplay = fmt.escapeHtml(conv.makeReplayURI(prev.getCaptureTimestamp(),prev.getOriginalUrl()));
 	                %>
-	                <%= fmt.format("HTMLError.likeToTry") %><a href="<%= safePrevReplay %>"><%= fmt.format("UIGlobal.previous") %></a> <%= fmt.format("HTMLError.date") %>
+	                <%= fmt.format("HTMLError.likeToTry") %> <a href="<%= safePrevReplay %>"><%= fmt.format("UIGlobal.previous") %></a> <%= fmt.format("HTMLError.date") %>
 	                <%
 
 	        } else if (next != null) {
 	                String safeNextReplay = fmt.escapeHtml(conv.makeReplayURI(next.getCaptureTimestamp(),next.getOriginalUrl()));
 	                %>
-	                <%= fmt.format("HTMLError.likeToTry") %><a href="<%= safeNextReplay %>"><%= fmt.format("UIGlobal.next") %></a> <%= fmt.format("HTMLError.date") %>
+	                <%= fmt.format("HTMLError.likeToTry") %> <a href="<%= safeNextReplay %>"><%= fmt.format("UIGlobal.next") %></a> <%= fmt.format("HTMLError.date") %>
 	                <%
 	        }
 	        %>
