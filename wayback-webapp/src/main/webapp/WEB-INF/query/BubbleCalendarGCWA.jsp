@@ -283,7 +283,7 @@ $().ready(function(){
 <div class="container">
 <div class="row">
 <div id="wb-sttl" class="col-md-5">
-<a href="<%= gcWebURL %>">
+<a href="<%= gcwafmt.format("header.gcwebarchive.baseurl") %>">
 <span><%= gcwafmt.format("wayback.title") %></span>
 </a>
 </div>
