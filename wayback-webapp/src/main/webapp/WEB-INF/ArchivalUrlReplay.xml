@@ -80,7 +80,7 @@
    <import resource="ArchivalUrlSaxReplay.xml"/>
  -->
  <bean id="fastArchivalSAXDelegator" class="org.archive.wayback.archivalurl.FastArchivalUrlReplayParseEventHandler" >
-   <property name="jspInsertPath" value="/WEB-INF/replay/DisclaimChooser.jsp"/>
+   <property name="jspInsertPath" value="/WEB-INF/replay/Disclaimer.jsp"/>
  </bean>
 
 <!-- 
