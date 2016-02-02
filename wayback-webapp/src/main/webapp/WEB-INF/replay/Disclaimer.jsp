@@ -26,8 +26,10 @@ if(result != null) {
 
 Date resultDate = result.getCaptureDate();
 String resultUrl = result.getOriginalUrl();
+String queryPrefix = results.getQueryPrefix();
+String starLink = queryPrefix + results.getWbRequest().getReplayTimestamp() + "*/" + resultUrl;
 
-String wmNotice = fmt.format("ReplayView.banner", resultUrl, resultDate);
+String wmNotice = fmt.format("ReplayView.banner", resultUrl, resultDate, starLink);
 String wmHideNotice = fmt.format("ReplayView.bannerHideLink");
 %>
 <script type="text/javascript">
