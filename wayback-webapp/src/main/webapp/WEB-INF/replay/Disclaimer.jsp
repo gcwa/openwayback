@@ -33,7 +33,7 @@ String wmNotice = fmt.format("ReplayView.banner", resultUrl, resultDate, starLin
 String wmHideNotice = fmt.format("ReplayView.bannerHideLink");
 %>
 <script type="text/javascript">
-  var wmNotice = "<%= wmNotice %><%= dupeMsg %>";
+  var wmNotice = "<%= wmNotice %> <%= dupeMsg %>";
   var wmHideNotice = "<%= wmHideNotice %>";
 </script>
 <script type="text/javascript" src="<%= results.getStaticPrefix() %>js/disclaim.js"></script>
