@@ -1,7 +1,7 @@
 var notice = 
      "<div style='" +
      "position:relative;z-index:99999;"+
-     "border:1px solid;color:black;background-color:lightYellow;font-size:10px;font-family:sans-serif;padding:5px'>" + 
+     "border:1px solid;color:black;background-color:lightYellow;font-size:14px;font-family:sans-serif;padding:5px'>" + 
      wmNotice +
   	 " [ <a style='color:blue;font-size:10px;text-decoration:underline' href=\"javascript:void(top.disclaimElem.style.display='none')\">" + wmHideNotice + "</a> ]" +
      "</div>";
