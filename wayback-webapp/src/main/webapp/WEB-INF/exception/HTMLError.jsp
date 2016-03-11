@@ -1,3 +1,4 @@
+<%@page import="org.archive.wayback.exception.BadContentException"%>
 <%@ page language="java" pageEncoding="utf-8" contentType="text/html;charset=utf-8"
 %><%@ page import="java.util.List"
 %><%@ page import="java.util.Date"
@@ -28,6 +29,8 @@ String replayPrefix = wbr.getAccessPoint().getReplayPrefix();
 String requestUrl = wbr.getRequestUrl();
 
 StringFormatter fmt = results.getWbRequest().getFormatter();
+// GCWA Specific
+StringFormatter gcwafmt = results.getGCWAFormatter();
 %>
 <jsp:include page="/WEB-INF/template/UI-header.jsp" flush="true" />
 
@@ -36,7 +39,7 @@ StringFormatter fmt = results.getWbRequest().getFormatter();
             <div id="error">
 
                 <h2><%= fmt.format(e.getTitleKey()) %></h2>
-                <p><%=fmt.escapeHtml( fmt.format(e.getMessageKey(),e.getMessage()) )%></p>
+                <p><%=fmt.format(e.getMessageKey(),e.getMessage()) %></p>
 <%
 if(e instanceof ResourceNotInArchiveException) {
 	ResourceNotInArchiveException niae = (ResourceNotInArchiveException) e;
@@ -104,7 +107,13 @@ if(e instanceof ResourceNotInArchiveException) {
 	<%
 }
 %>
-
+<%
+String calendarUrl = results.getOriginalRequestURL();
+calendarUrl = calendarUrl.replaceAll("\\/wayback\\/\\d{14}\\/", "/wayback/*/");
+%>
+<div>
+<%= gcwafmt.format("HTMLError.goback", calendarUrl) %> <a href="<%= gcwafmt.format("gcwa.home.title.link") %>"><%= gcwafmt.format("gcwa.home.title") %></a></div>
+</div>
             </div>
             </section>
             <div id="errorBorder"></div>

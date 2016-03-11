@@ -23,12 +23,11 @@ if ("fr".equals(langCode)) {
 			<hr noshade size="1" align="center">
 			
 			<p>
-				<a href="<%= staticPrefix %>">
-					<%= fmt.format("UIGlobal.homeLink") %>
-				</a> |
+				<a href="<%= gcwafmt.format("gcwa.home.title.link") %>">
+					<%= gcwafmt.format("gcwa.home.title") %></a>
+			    |
 				<a href="<%= otherLangQueryPrefix %>">
-					<%= gcwafmt.format("wayback.otherLang") %>
-				</a>
+					<%= gcwafmt.format("wayback.otherLang") %></a>
 			</p>
 		</div>
 	</body>

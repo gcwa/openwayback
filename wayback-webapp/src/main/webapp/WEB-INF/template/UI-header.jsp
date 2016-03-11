@@ -9,11 +9,18 @@
 UIResults results = UIResults.getGeneric(request);
 WaybackRequest wbRequest = results.getWbRequest();
 StringFormatter fmt = wbRequest.getFormatter();
-
 String staticPrefix = results.getStaticPrefix();
 String queryPrefix = results.getQueryPrefix();
 String replayPrefix = results.getReplayPrefix();
 
+//GCWA Specific
+StringFormatter gcwafmt = results.getGCWAFormatter();
+String langCode = results.getWbRequest().getLocaleLanguage().substring(0,2).toLowerCase();
+if ("fr".equals(langCode)) {
+ //noop
+} else {
+ langCode = "en";
+}
 %>
 <!-- HEADER -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,7 +44,7 @@ String replayPrefix = results.getReplayPrefix();
 
 				<!-- OPENWAYBACK LOGO -->
 				
-				<td width="26%"><a href="<%= staticPrefix %>"><img src="<%= staticPrefix %>images/OpenWayback-banner.png" border="0"></a></td>
+				<td width="26%"><a href="<%= gcwafmt.format("wayback.baclac.title.link") %>"><img src="<%= staticPrefix %>gcwa/images/OpenWayback-banner-<%= langCode %>.png" border="0"></a></td>
 
 				<!-- /OPENWAYBACK LOGO -->
 			
@@ -60,6 +67,7 @@ String replayPrefix = results.getReplayPrefix();
 
 
 									<!-- URL FORM -->
+<!--
 									<form action="<%= queryPrefix %>query" method="get">
 
 
@@ -92,6 +100,7 @@ String replayPrefix = results.getReplayPrefix();
 
 
 									</form>
+-->
 									<!-- /URL FORM -->
 									  
 								</table>

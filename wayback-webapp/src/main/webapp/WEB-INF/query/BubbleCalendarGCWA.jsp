@@ -56,7 +56,7 @@ String langCode = results.getWbRequest().getLocaleLanguage().substring(0,2).toLo
 if ("fr".equals(langCode)) {
     otherLangUrl = results.getOriginalRequestURL().replaceAll("\\/wayback-fr\\/", "/wayback/");
 } else {
-    langCode = "fr";
+    langCode = "en";
     otherLangUrl = results.getOriginalRequestURL().replaceAll("\\/wayback\\/", "/wayback-fr/");
 }
 String gcWebURL = staticPrefix.replace("wayback","GCWebArchive");
@@ -283,8 +283,8 @@ $().ready(function(){
 <div class="container">
 <div class="row">
 <div id="wb-sttl" class="col-md-5">
-<a href="<%= gcwafmt.format("header.gcwebarchive.baseurl") %>">
-<span><%= gcwafmt.format("wayback.title") %></span>
+<a href="<%= gcwafmt.format("wayback.baclac.title.link") %>">
+<span><%= gcwafmt.format("wayback.baclac.title") %></span>
 </a>
 </div>
 <object id="wmms" type="image/svg+xml" tabindex="-1" role="img" data="<%= staticPrefix %>wet-boew/theme-gcwu-fegc/assets/wmms.svg" aria-label="Symbol of the Government of Canada"></object>
@@ -302,7 +302,7 @@ $().ready(function(){
     <div id="wbSearch">
     
         <div id="logo">
-            <a><img src="<%= staticPrefix %>gcwa/images/OpenWayback-banner-<%= langCode %>.png" alt="logo: OpenWayback" /></a>
+            <a href="<%= gcwafmt.format("wayback.baclac.title.link") %>"><img src="<%= staticPrefix %>gcwa/images/OpenWayback-banner-<%= langCode %>.png" alt="logo: OpenWayback" /></a>
         </div>
 
         <div id="form">
@@ -578,20 +578,21 @@ for(int moy = 0; moy < 12; moy++) {
 <h2>About this site</h2>
 <ul id="gc-tctr" class="list-inline">
 <li><a rel="license" href="<%= gcwafmt.format("footer.terms.and.condition.link") %>"><%= gcwafmt.format("footer.terms.and.condition") %></a></li>
-<li><a href="<%= gcwafmt.format("footer.transparency") %>"><%= gcwafmt.format("footer.transparency") %></a></li>
+<li><a href="<%= gcwafmt.format("footer.transparency.link") %>"><%= gcwafmt.format("footer.transparency") %></a></li>
 </ul>
 <div class="row">
 <section class="col-sm-3">
-<h3><%= gcwafmt.format("footer.about.us") %></h3>
+<h3><a href="<%= gcwafmt.format("footer.about.us.link") %>"><%= gcwafmt.format("footer.about.us") %></a></h3>
 <ul class="list-unstyled">
 <li><a href="<%= gcwafmt.format("footer.mandate.link") %>"><%= gcwafmt.format("footer.mandate") %></a></li>
 <li><a href="<%= gcwafmt.format("footer.librarian.and.archivist.link") %>"><%= gcwafmt.format("footer.librarian.and.archivist") %></a></li>
 <li><a href="<%= gcwafmt.format("footer.service.and.program.link") %>"><%= gcwafmt.format("footer.service.and.program") %></a></li>
 <li><a href="<%= gcwafmt.format("footer.lac.events.link") %>"><%= gcwafmt.format("footer.lac.events") %></a></li>
+<li><a href="<%= gcwafmt.format("footer.lac.publications.link") %>"><%= gcwafmt.format("footer.lac.publications") %></a></li>
 </ul>
 </section>
 <section class="col-sm-3">
-<h3><%= gcwafmt.format("footer.news.title") %></h3>
+<h3><a href="<%= gcwafmt.format("footer.news.title.link") %>"><%= gcwafmt.format("footer.news.title") %></a></h3>
 <ul class="list-unstyled">
 <li><a href="<%= gcwafmt.format("footer.news.release.link") %>"><%= gcwafmt.format("footer.news.release") %></a></li>
 <li><a href="<%= gcwafmt.format("footer.speeches.link") %>"><%= gcwafmt.format("footer.speeches") %></a></li>
@@ -601,22 +602,18 @@ for(int moy = 0; moy < 12; moy++) {
 </ul>
 </section>
 <section class="col-sm-3">
-<h3><%= gcwafmt.format("footer.contactus.title") %></h3>
+<h3><a href="<%= gcwafmt.format("footer.contactus.title.link") %>"><%= gcwafmt.format("footer.contactus.title") %></a></h3>
 <ul class="list-unstyled">
 <li><a href="<%= gcwafmt.format("footer.address.link") %>"><%= gcwafmt.format("footer.address") %></a></li>
 <li><a href="<%= gcwafmt.format("footer.telephone.numbers.link") %>"><%= gcwafmt.format("footer.telephone.numbers") %></a></li>
-<li><a href="<%= gcwafmt.format("footer.emails.link") %>"><%= gcwafmt.format("footer.emails") %></a></li>
 <li><a href="<%= gcwafmt.format("footer.find.employee.link") %>"><%= gcwafmt.format("footer.find.employee") %></a></li>
+<li><a href="<%= gcwafmt.format("footer.feedback.link") %><%= results.getOriginalRequestURL() %>"><%= gcwafmt.format("footer.feedback") %></a></li>
 </ul>
 </section>
 <section class="col-sm-3">
 <h3><%= gcwafmt.format("footer.stay.connected.title") %></h3>
 <ul class="list-unstyled">
-<li><a href="http://www.flickr.com/photos/lac-bac/collections/">Flickr </a></li>
-<li><a href="https://twitter.com/@LibraryArchives">Twitter </a></li>
-<li><a href="http://www.facebook.com/pages/Library-and-Archives-Canada/383985531647785"> Facebook </a></li>
-<li><a href="http://www.youtube.com/user/LibraryArchiveCanada/">Youtube</a></li>
-<li><a href="<%= gcwafmt.format("footer.rss.feed.link") %>"><%= gcwafmt.format("footer.rss.feed") %></a></li>
+<li><a href="<%= gcwafmt.format("footer.social.media.link") %>"><%= gcwafmt.format("footer.social.media") %></a></li>
 </ul>
 </section>
 </div>
