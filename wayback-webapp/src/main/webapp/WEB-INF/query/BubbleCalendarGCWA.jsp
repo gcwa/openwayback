@@ -314,10 +314,6 @@ $().ready(function(){
 
     <div id="wbSearch">
     
-        <div id="logo">
-            <a href="<%= gcwafmt.format("wayback.baclac.title.link") %>"><img src="<%= staticPrefix %>gcwa/images/OpenWayback-banner-<%= langCode %>.png" alt="logo: OpenWayback" /></a>
-        </div>
-
         <div id="form">
         
             <form name="form1" method="get" action="<%= queryPrefix %>query">
@@ -343,7 +339,7 @@ $().ready(function(){
 
     <div id="wbChart" onmouseout="showTrackers('none'); setActiveYear(startYear);">
     
-  <div id="wbChartThis" style="padding-left: 223px">
+  <div id="wbChartThis">
         <a style="position:relative; white-space:nowrap; width:<%= imgWidth %>px;height:<%= imgHeight %>px;" href="<%= queryPrefix %>" id="wm-graph-anchor">
         <div id="wm-ipp-sparkline" style="position:relative; white-space:nowrap; width:<%= imgWidth %>px;height:<%= imgHeight %>px;background: #f3f3f3 -moz-linear-gradient(top,#ffffff,#f3f3f3);background: #f3f3f3 -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f3f3f3), color-stop(1.0, #f3f3f3));background-color: #f3f3f3;filter: progid:DXImageTransform.Microsoft.Gradient(enabled='true',startColorstr=#FFFFFFFF, endColorstr=#FFF3F3F3);cursor:pointer;border: 1px solid #ccc;border-left:none;" title="<%= fmt.format("ToolBar.sparklineTitle") %>">
 			<img id="sparklineImgId" style="position:absolute;z-index:9012;top:0;left:0;"
