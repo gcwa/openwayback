@@ -100,6 +100,10 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <style type="text/css" src="<%= staticPrefix %>css/styles.css">
 @import url("<%= staticPrefix %>css/styles.css");
 </style>
+<!-- GCWA megamenu should win over sparkline -->
+<style type="text/css">
+  nav#wb-sm ul ul {z-index: 9020}
+</style>
 <script type="text/javascript" src="<%= staticPrefix %>js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="<%= staticPrefix %>js/excanvas.compiled.js"></script>
 <script type="text/javascript" src="<%= staticPrefix %>js/jquery.bt.min.js" charset="utf-8"></script>
@@ -304,8 +308,16 @@ $().ready(function(){
 </div>
 </div>
 </div>
+<% if ("fr".equals(langCode)) { %>
+ <jsp:include page="/WEB-INF/template/baclac_megamenu_fr.jsp" flush="true" />
+ <jsp:include page="/WEB-INF/template/baclac_breadcrumb_fr.jsp" flush="true" />
+<% } else { %>
+ <jsp:include page="/WEB-INF/template/baclac_megamenu_en.jsp" flush="true" />
+ <jsp:include page="/WEB-INF/template/baclac_breadcrumb_en.jsp" flush="true" />
+<% } %>
 <span data-trgt="mb-pnl" class="wb-menu hide"></span>
 </header>
+
 <main role="main" property="mainContentOfPage" class="container">
 
 
