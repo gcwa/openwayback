@@ -52,12 +52,15 @@ String yearImgUrl = graphJspPrefix + "jsp/graph.jsp?nomonth=1&graphdata=" + year
 Calendar cal = BubbleCalendarData.getUTCCalendar();
 // GCWA Specific
 String otherLangUrl;
+String baclacSearchUrl;
 String langCode = results.getWbRequest().getLocaleLanguage().substring(0,2).toLowerCase();
 if ("fr".equals(langCode)) {
     otherLangUrl = results.getOriginalRequestURL().replaceAll("\\/wayback-fr\\/", "/wayback/");
+    baclacSearchUrl = "http://www.bac-lac.gc.ca/fra/Recherche/Pages/resultats.aspx";
 } else {
     langCode = "en";
     otherLangUrl = results.getOriginalRequestURL().replaceAll("\\/wayback\\/", "/wayback-fr/");
+    baclacSearchUrl = "http://www.bac-lac.gc.ca/eng/Search/Pages/results.aspx";
 }
 String gcWebURL = staticPrefix.replace("wayback","GCWebArchive");
 %><!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="<%= langCode %>" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
@@ -288,6 +291,16 @@ $().ready(function(){
 </a>
 </div>
 <object id="wmms" type="image/svg+xml" tabindex="-1" role="img" data="<%= staticPrefix %>wet-boew/theme-gcwu-fegc/assets/wmms.svg" aria-label="Symbol of the Government of Canada"></object>
+    <section id="wb-srch" class="visible-md visible-lg">
+        <h2><%= gcwafmt.format("header.search.title") %></h2>
+        <form action="<%= baclacSearchUrl %>" method="get" role="search" class="form-inline">
+            <div class="form-group">
+                <input id="wb-srch-q" class="form-control" name="k" type="search"
+                    value="" size="27" maxlength="150" placeholder="<%= gcwafmt.format("header.search.input.placeholder") %>" />
+            </div>
+            <button type="submit" id="wb-srch-sub" class="btn btn-default"><%= gcwafmt.format("header.search.button.submit.text") %></button>
+        </form>
+    </section>
 </div>
 </div>
 </div>
