@@ -60,7 +60,7 @@
     tomcat-users.xml with in the role "wayback".
 -->
 
-<!--
+<!-- 
     <security-role>
         <description>Secured-Wayback-Access</description>
         <role-name>wayback</role-name>
@@ -69,7 +69,7 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Secured-Wayback</web-resource-name>
-            <url-pattern>/usersecure/*</url-pattern>
+            <url-pattern>/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>wayback</role-name>
@@ -80,12 +80,12 @@
         <auth-method>BASIC</auth-method>
         <realm-name>Secured-Wayback</realm-name>
     </login-config>
-
+-->
 
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
         <location>/WEB-INF/exception/HTMLError.jsp</location>
     </error-page>
--->
+
 
 </web-app>

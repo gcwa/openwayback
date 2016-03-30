@@ -14,14 +14,15 @@ CaptureSearchResult result = results.getResult();
 String dupeMsg = "";
 if(result != null) {
         if(result.isDuplicateDigest()) {
+                Date resultDate = result.getCaptureDate();
                 Date dupeDate = result.getDuplicateDigestStoredDate();
-                String prettyDate = "";
+                String prettyDupeDate = "";
+                String prettyResultDate = "";
                 if(dupeDate != null) {
-                    prettyDate = "(" + 
-                    		fmt.format("MetaReplay.captureDateDisplay",
-                    				dupeDate) + ")";
+                    prettyDupeDate = fmt.format("MetaReplay.captureDateDisplay", dupeDate);
+                    prettyResultDate = fmt.format("MetaReplay.captureDateDisplay", resultDate);
+                    dupeMsg = gcwafmt.format("ReplayView.disclaimerText", prettyDupeDate, prettyResultDate);    
                 }
-                dupeMsg = fmt.format("ReplayView.disclaimerText", dupeDate);
         }
 }
 

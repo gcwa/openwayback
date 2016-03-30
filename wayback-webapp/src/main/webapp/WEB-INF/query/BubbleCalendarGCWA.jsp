@@ -70,7 +70,7 @@ String gcWebURL = staticPrefix.replace("wayback","GCWebArchive");
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title><%= fmt.format("UIGlobal.pageTitle") %></title>
+<title><%= gcwafmt.format("UIGlobal.pageTitle") %></title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <!-- Meta data -->
 <meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities">
@@ -331,7 +331,7 @@ $().ready(function(){
             <form name="form1" method="get" action="<%= queryPrefix %>query">
 			<input type="hidden" name="<%= WaybackRequest.REQUEST_TYPE %>" value="<%= WaybackRequest.REQUEST_CAPTURE_QUERY %>">
                         <input type="text" name="<%= WaybackRequest.REQUEST_URL %>" value="<%= data.searchUrlForHTML %>" size="40" maxlength="256">
-            <input type="submit" name="Submit" value="<%= fmt.format("UIGlobal.GoWaybackButton") %>"/>
+            <input type="submit" name="Submit" value="<%= gcwafmt.format("UIGlobal.GoWaybackButton") %>"/>
             </form>
     
             <div id="wbMeta">

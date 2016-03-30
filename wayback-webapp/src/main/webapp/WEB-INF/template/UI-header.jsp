@@ -44,7 +44,7 @@ if ("fr".equals(langCode)) {
 
 				<!-- OPENWAYBACK LOGO -->
 				
-				<td width="26%"><a href="<%= gcwafmt.format("wayback.baclac.title.link") %>"><img src="<%= staticPrefix %>gcwa/images/OpenWayback-banner-<%= langCode %>.png" border="0"></a></td>
+				<td width="26%"><a href="<%= gcwafmt.format("wayback.baclac.title.link") %>"><img src="<%= staticPrefix %>gcwa/images/lac-bac-logo.png" border="0"></a></td>
 
 				<!-- /OPENWAYBACK LOGO -->
 			
