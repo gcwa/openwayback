@@ -18,7 +18,7 @@ if(result != null) {
                 Date dupeDate = result.getDuplicateDigestStoredDate();
                 String prettyDupeDate = "";
                 String prettyResultDate = "";
-                if(dupeDate != null) {
+                if(dupeDate != null && resultDate != null) {
                     prettyDupeDate = fmt.format("MetaReplay.captureDateDisplay", dupeDate);
                     prettyResultDate = fmt.format("MetaReplay.captureDateDisplay", resultDate);
                     dupeMsg = gcwafmt.format("ReplayView.disclaimerText", prettyDupeDate, prettyResultDate);    
