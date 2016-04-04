@@ -31,7 +31,7 @@ if ("fr".equals(langCode)) {
 		<link rel="stylesheet" type="text/css" 
 			href="<%= staticPrefix %>css/styles.css"
 			src="<%= staticPrefix %>css/styles.css" />
-		<title><%= fmt.format("UIGlobal.pageTitle") %></title>
+		<title><%= gcwafmt.format("UIGlobal.pageTitle") %></title>
 		<base target="_top" />
 	</head>
 
