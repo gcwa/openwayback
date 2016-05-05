@@ -1,9 +1,10 @@
-var notice = 
-     "<div style='" +
-     "position:relative;z-index:99999;"+
-     "border:1px solid;color:black;background-color:lightYellow;font-size:14px;font-family:sans-serif;padding:5px'>" + 
+var notice =
+	'<style type="text/css">' +
+	' #openwayback-disclaim,#openwayback-disclaim p{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4375;color:#333}#openwayback-disclaim{position:relative;border:1px solid #000;background-color:#ffffe0;padding:5px;text-align:left;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}#openwayback-disclaim a{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4375;color:#00f;text-decoration:underline;background-color:transparent}#openwayback-disclaim a:active,#openwayback-disclaim a:hover{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4375;color:#00f;text-decoration:underline;outline:0}#openwayback-disclaim p{margin:0 0 11.5px;padding:0;box-sizing:border-box}' +
+	"</style>" +
+     "<div id='openwayback-disclaim'>" + 
      wmNotice +
-  	 " [ <a style='color:blue;font-size:10px;text-decoration:underline' href=\"javascript:void(top.disclaimElem.style.display='none')\">" + wmHideNotice + "</a> ]" +
+  	 " [ <a href=\"javascript:void(top.disclaimElem.style.display='none')\">" + wmHideNotice + "</a> ]" +
      "</div>";
 
 function getFrameArea(frame) {
@@ -37,4 +38,6 @@ function disclaim() {
 	top.disclaimElem = disclaimElem;
 	document.body.insertBefore(disclaimElem,document.body.firstChild);
 }
-disclaim();
+document.addEventListener('DOMContentLoaded', function(){
+	disclaim();	
+});
