@@ -154,7 +154,7 @@ filter: alpha(opacity=20);
 
 #wbSearch {float:left;padding:30px 30px 0;}
 #wbSearch #logo {float:left; width:223px;}
-#wbSearch #form {float:left;width:707px;}
+#wbSearch #form {float:left;width:637px;}
 #wbSearch form {margin:0;padding:0;}
 #wbSearch input {font-family:"Arial","Helvetica Neue","Helvetica",sans-serif;font-size:1.125em;}
 #wbSearch input[type=text] {width:450px;font-weight:700;}
@@ -165,7 +165,7 @@ filter: alpha(opacity=20);
 #wbMeta p.wbNote {color:#666;font-size: 0.6875em;}
 #wbMeta p.wbNote a {color:#666;}
 #wbChart {text-align:center;padding:0 30px;}
-#wbChartThis {position:relative;margin:0 auto;}
+#wbChartThis {position:relative;width: 637px;}
 .wbChartThisContainer,.wbChartHover {width: 49px;height:30px;float:left;overflow:visible;}
 .wbChartThisTop {
     width: 49px;
