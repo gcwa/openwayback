@@ -9,13 +9,16 @@ StringFormatter gcwafmt = results.getGCWAFormatter();
 String staticPrefix = results.getStaticPrefix();
 String queryPrefix = results.getQueryPrefix();
 String replayPrefix = results.getReplayPrefix();
+String currentLangURL = results.getOriginalRequestURL();
 String otherLangQueryPrefix;
+String otherLangURL;
 
 String langCode = results.getWbRequest().getLocaleLanguage().substring(0,2).toLowerCase();
 if ("fr".equals(langCode)) {
     otherLangQueryPrefix = queryPrefix.replaceAll("\\/wayback-fr\\/", "/wayback/");
+    otherLangURL= currentLangURL.replaceAll("\\/wayback-fr\\/", "/wayback/");
 } else {
-    otherLangQueryPrefix = queryPrefix.replaceAll("\\/wayback\\/", "/wayback-fr/");
+    otherLangURL = currentLangURL.replaceAll("\\/wayback\\/", "/wayback-fr/");
 };
 %>
 <!-- FOOTER -->
@@ -26,7 +29,7 @@ if ("fr".equals(langCode)) {
 				<a href="<%= gcwafmt.format("gcwa.home.title.link") %>">
 					<%= gcwafmt.format("gcwa.home.title") %></a>
 			    |
-				<a href="<%= otherLangQueryPrefix %>">
+				<a href="<%= otherLangURL %>">
 					<%= gcwafmt.format("wayback.otherLang") %></a>
 			</p>
 		</div>
